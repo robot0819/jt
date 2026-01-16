@@ -37,7 +37,7 @@ fi
 sudo ln -sf /home/BDInfoCLI-ng-main/scripts/bdinfo /usr/local/bin/bdinfo
 
 # 5. 自动安装
-curl -sSL ${RAW_URL}/install.sh | bash
+
 source ~/.bashrc
 
 echo "------------------------------------------------"
