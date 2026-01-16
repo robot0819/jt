@@ -1,13 +1,8 @@
 #!/bin/bash
-
-# 定义仓库基础地址 (请将 username 替换为你的 GitHub 用户名)
-
-# 注意：分支名通常是 main，旧仓库可能是 master
-
 GITHUB_USER="robot0819"
 REPO_NAME="jt"
 BRANCH="main"
-RAW_URL="https://raw.githubusercontent.com/${GITHUB_USER}/${REPO_NAME}/${BRANCH}"
+RAW_URL="https://github.com/${GITHUB_USER}/${REPO_NAME}/raw/refs/heads/${BRANCH}"
 
 echo "开始执行全自动安装程序..."
 
@@ -36,11 +31,11 @@ if ! grep -q "alias tu=" ~/.bashrc; then
     echo "alias tu='/usr/local/bin/screenshot.sh'" >> ~/.bashrc
 fi
 
-# 5. 提示用户刷新环境
+# 5. 自动安装
+curl -sSL ${RAW_URL}/install.sh | bash
+source ~/.bashrc
 
 echo "------------------------------------------------"
 echo "安装成功！"
-echo "请执行以下命令使 'tu' 命令立即生效："
-echo "source ~/.bashrc"
 echo "------------------------------------------------"
 
